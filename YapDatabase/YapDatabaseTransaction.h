@@ -524,7 +524,7 @@ NS_ASSUME_NONNULL_BEGIN
  *   The metadata is optional. You can pass nil for the metadata is unneeded.
  *   If non-nil then the metadata is also written to the database (metadata is also persistent).
 **/
-- (void)setObject:(nullable id)object forKey:(NSString *)key inCollection:(nullable NSString *)collection withMetadata:(id)metadata;
+- (void)setObject:(nullable id)object forKey:(NSString *)key inCollection:(nullable NSString *)collection withMetadata:(nullable id)metadata;
 
 /**
  * Sets the object & metadata for the given key/collection.

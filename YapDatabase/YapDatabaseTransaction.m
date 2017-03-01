@@ -4288,7 +4288,7 @@
  *   The metadata is optional. You can pass nil for the metadata is unneeded.
  *   If non-nil then the metadata is also written to the database (metadata is also persistent).
 **/
-- (void)setObject:(id)object forKey:(NSString *)key inCollection:(NSString *)collection withMetadata:(id)metadata
+- (void)setObject:(id)object forKey:(NSString *)key inCollection:(NSString *)collection withMetadata:(nullable id)metadata
 {
 	[self setObject:object forKey:key inCollection:collection withMetadata:metadata
                                                           serializedObject:nil
@@ -4341,7 +4341,7 @@
  * The preSerializedMetadata is only used if metadata is non-nil.
 **/
 - (void)setObject:(id)object forKey:(NSString *)key inCollection:(NSString *)collection
-                                                    withMetadata:(id)metadata
+                                                    withMetadata:(nullable id)metadata
                                                 serializedObject:(NSData *)preSerializedObject
                                               serializedMetadata:(NSData *)preSerializedMetadata
 {
