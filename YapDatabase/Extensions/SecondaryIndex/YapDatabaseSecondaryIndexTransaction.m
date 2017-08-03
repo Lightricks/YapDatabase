@@ -1475,7 +1475,7 @@ static NSString *const ext_key_version_deprecated = @"version";
 #pragma mark Aggregate Query
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-- (id)performAggregateQuery:(YapDatabaseQuery *)query
+- (nullable id)performAggregateQuery:(YapDatabaseQuery *)query
 {
 	if (query == nil) return nil;
 	if (query.isAggregateQuery == NO) return nil;

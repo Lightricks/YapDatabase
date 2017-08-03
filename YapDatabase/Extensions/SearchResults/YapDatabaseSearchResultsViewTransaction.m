@@ -2492,7 +2492,7 @@ static NSString *const ext_key_query             = @"query";
 	searchQueue = nil;
 }
 
-- (NSString *)snippetForKey:(NSString *)key inCollection:(NSString *)collection
+- (nullable NSString *)snippetForKey:(NSString *)key inCollection:(NSString *)collection
 {
 	__unsafe_unretained YapDatabaseSearchResultsViewOptions *searchResultsOptions =
 	(YapDatabaseSearchResultsViewOptions *)viewConnection->view->options;

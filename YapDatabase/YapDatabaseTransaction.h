@@ -101,7 +101,7 @@ NS_ASSUME_NONNULL_BEGIN
  * If the list of collections is really big, it may be more efficient to enumerate them instead.
  * @see enumerateCollectionsUsingBlock:
 **/
-- (NSArray<NSString *> *)allCollections;
+- (nullable NSArray<NSString *> *)allCollections;
 
 /**
  * Returns a list of all keys in the given collection.

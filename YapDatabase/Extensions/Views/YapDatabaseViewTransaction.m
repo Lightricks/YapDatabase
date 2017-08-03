@@ -4104,7 +4104,7 @@
 	return key;
 }
 
-- (NSString *)groupForKey:(NSString *)key inCollection:(NSString *)collection
+- (nullable NSString *)groupForKey:(NSString *)key inCollection:(NSString *)collection
 {
 	if (key == nil)
 		return nil;

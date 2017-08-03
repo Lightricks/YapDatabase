@@ -294,7 +294,7 @@
 #pragma mark List
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-- (NSArray *)allCollections
+- (nullable NSArray *)allCollections
 {
 	BOOL needsFinalize;
 	sqlite3_stmt *statement = [connection enumerateCollectionsStatement:&needsFinalize];

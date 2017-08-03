@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  * Shorthand for a query with no 'WHERE' clause.
  * Equivalent to [YapDatabaseQuery queryWithFormat:@""].
 **/
-+ (instancetype)queryMatchingAll;
++ (nullable instancetype)queryMatchingAll;
 
 #pragma mark Aggregate Queries
 

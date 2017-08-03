@@ -106,8 +106,8 @@
  * 
  * So you can use this method to fetch the previous versionTag.
 **/
-+ (NSString *)previousVersionTagForRegisteredViewName:(NSString *)registeredName
-                                      withTransaction:(YapDatabaseReadTransaction *)transaction
++ (nullable NSString *)previousVersionTagForRegisteredViewName:(NSString *)registeredName
+    withTransaction:(YapDatabaseReadTransaction *)transaction
 {
 	NSString *prevVersionTag = [transaction stringValueForKey:ext_key_versionTag extension:registeredName];
 	

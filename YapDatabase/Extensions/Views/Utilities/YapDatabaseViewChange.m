@@ -171,7 +171,7 @@
 @synthesize originalSection = originalSection;
 @synthesize finalSection = finalSection;
 
-- (NSIndexPath *)indexPath
+- (nullable NSIndexPath *)indexPath
 {
 	if (type == YapDatabaseViewChangeInsert) {
 		return nil; // <-- You should be using newIndexPath
@@ -187,7 +187,7 @@
 	}
 }
 
-- (NSIndexPath *)newIndexPath
+- (nullable NSIndexPath *)newIndexPath
 {
 	if (type == YapDatabaseViewChangeDelete || type == YapDatabaseViewChangeUpdate) {
 		return nil; // <-- You should be using indexPath

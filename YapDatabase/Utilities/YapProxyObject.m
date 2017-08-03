@@ -23,7 +23,7 @@
 	return (realObject != nil);
 }
 
-- (id)realObject
+- (nullable id)realObject
 {
 	if ((realObject == nil) && (collectionKey != nil))
 	{

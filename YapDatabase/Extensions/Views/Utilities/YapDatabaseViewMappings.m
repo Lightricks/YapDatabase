@@ -743,7 +743,7 @@
  *
  * If the section is out-of-bounds, returns nil.
 **/
-- (NSString *)groupForSection:(NSUInteger)section
+- (nullable NSString *)groupForSection:(NSUInteger)section
 {
 	if (isUsingConsolidatedGroup && !autoConsolidationDisabled)
 	{

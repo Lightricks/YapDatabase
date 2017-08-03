@@ -120,7 +120,7 @@ NS_ASSUME_NONNULL_BEGIN
  * If the given {collection, key} are included in the view, then returns the associated group.
  * If the {collection, key} isn't in the view, then returns nil.
 **/
-- (NSString *)groupForKey:(NSString *)key inCollection:(nullable NSString *)collection;
+- (nullable NSString *)groupForKey:(NSString *)key inCollection:(nullable NSString *)collection;
 
 /**
  * Fetches both the group and the index within the group for the given {collection, key}.

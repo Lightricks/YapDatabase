@@ -111,7 +111,7 @@
  * Shorthand for a query with no 'WHERE' clause.
  * Equivalent to [YapDatabaseQuery queryWithFormat:@""].
 **/
-+ (instancetype)queryMatchingAll
++ (nullable instancetype)queryMatchingAll
 {
 	return [[YapDatabaseQuery alloc] initWithAggregateFunction:nil queryString:@"" queryParameters:nil];
 }
@@ -336,9 +336,9 @@
 
 @dynamic isAggregateQuery;
 
-- (id)initWithAggregateFunction:(NSString *)inAggregateFunction
-                    queryString:(NSString *)inQueryString
-                queryParameters:(NSArray *)inQueryParameters
+- (nullable id)initWithAggregateFunction:(nullable NSString *)inAggregateFunction
+                             queryString:(NSString *)inQueryString
+                         queryParameters:(NSArray *)inQueryParameters
 {
 	if ((self = [super init]))
 	{
