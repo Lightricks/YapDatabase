@@ -147,7 +147,7 @@ static int connectionBusyHandler(void *ptr, int count) {
 + (YapDatabaseSerializer)defaultSerializer
 {
 	return ^ NSData* (NSString __unused *collection, NSString __unused *key, id object){
-		return [NSKeyedArchiver archivedDataWithRootObject:object];
+		return [NSKeyedArchiver archivedDataWithRootObject:object requiringSecureCoding:NO error:nil];
 	};
 }
 
@@ -158,7 +158,10 @@ static int connectionBusyHandler(void *ptr, int count) {
 + (YapDatabaseDeserializer)defaultDeserializer
 {
 	return ^ id (NSString __unused *collection, NSString __unused *key, NSData *data){
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 		return data && data.length > 0 ? [NSKeyedUnarchiver unarchiveObjectWithData:data] : nil;
+#pragma clang diagnostic pop
 	};
 }
 
@@ -209,7 +212,7 @@ static int connectionBusyHandler(void *ptr, int count) {
 		}
 		else
 		{
-			return [NSKeyedArchiver archivedDataWithRootObject:object];
+			return [NSKeyedArchiver archivedDataWithRootObject:object requiringSecureCoding:NO error:nil];
 		}
 	};
 }
@@ -231,7 +234,10 @@ static int connectionBusyHandler(void *ptr, int count) {
 		}
 		else
 		{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 			return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+#pragma clang diagnostic pop
 		}
 	};
 }

@@ -164,7 +164,7 @@ databaseIdentifier:(NSString *)inDatabaseIdentifier
 - (NSData *)serializeDeletedRecordIDs
 {
 	if ([deletedRecordIDs count] > 0)
-		return [NSKeyedArchiver archivedDataWithRootObject:deletedRecordIDs];
+		return [NSKeyedArchiver archivedDataWithRootObject:deletedRecordIDs requiringSecureCoding:NO error:nil];
 	else
 		return nil;
 }
@@ -172,7 +172,7 @@ databaseIdentifier:(NSString *)inDatabaseIdentifier
 - (void)deserializeDeletedRecordIDs:(NSData *)serializedDeletedRecordIDs
 {
 	if (serializedDeletedRecordIDs)
-		deletedRecordIDs = [NSKeyedUnarchiver unarchiveObjectWithData:serializedDeletedRecordIDs];
+		deletedRecordIDs = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSMutableArray class] fromData:serializedDeletedRecordIDs error:nil];
 	else
 		deletedRecordIDs = nil;
 	
@@ -186,7 +186,7 @@ databaseIdentifier:(NSString *)inDatabaseIdentifier
 	if (modifiedRecords.count == 0)
 		return nil;
 	else
-		return [NSKeyedArchiver archivedDataWithRootObject:[modifiedRecords allValues]];
+		return [NSKeyedArchiver archivedDataWithRootObject:[modifiedRecords allValues] requiringSecureCoding:NO error:nil];
 }
 
 - (void)deserializeModifiedRecords:(NSData *)serializedModifiedRecords
@@ -194,7 +194,7 @@ databaseIdentifier:(NSString *)inDatabaseIdentifier
 	NSArray *modifiedRecordsArray = nil;
 	
 	if (serializedModifiedRecords) {
-		modifiedRecordsArray = [NSKeyedUnarchiver unarchiveObjectWithData:serializedModifiedRecords];
+		modifiedRecordsArray = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSArray class] fromData:serializedModifiedRecords error:nil];
 	}
 	
 	if (modifiedRecordsArray) {

@@ -753,7 +753,7 @@
 		DCBA3C811FAE0EC50086289D /* YapDatabaseCloudCoreGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = DCBA3C441FAE0EC50086289D /* YapDatabaseCloudCoreGraph.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCBA3C821FAE0EC50086289D /* YapDatabaseCloudCoreGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = DCBA3C441FAE0EC50086289D /* YapDatabaseCloudCoreGraph.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCBA3C831FAE0EC50086289D /* YapDatabaseCloudCorePipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBA3C451FAE0EC50086289D /* YapDatabaseCloudCorePipeline.m */; };
-		DCBA3C841FAE0EC50086289D /* YapDatabaseCloudCorePipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBA3C451FAE0EC50086289D /* YapDatabaseCloudCorePipeline.m */; };
+		DCBA3C841FAE0EC50086289D /* YapDatabaseCloudCorePipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBA3C451FAE0EC50086289D /* YapDatabaseCloudCorePipeline.m */; settings = {COMPILER_FLAGS = "-Wno-deprecated-declarations"; }; };
 		DCBA3C851FAE0EC50086289D /* YapDatabaseCloudCorePipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBA3C451FAE0EC50086289D /* YapDatabaseCloudCorePipeline.m */; };
 		DCBA3C861FAE0EC50086289D /* YapDatabaseCloudCorePipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBA3C451FAE0EC50086289D /* YapDatabaseCloudCorePipeline.m */; };
 		DCBA3C871FAE0EC50086289D /* YapDatabaseCloudCorePipelineDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DCBA3C461FAE0EC50086289D /* YapDatabaseCloudCorePipelineDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
