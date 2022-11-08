@@ -109,14 +109,16 @@ NSString *const YapDatabaseCloudCoreDefaultPipelineName = @"default";
 + (YDBCloudCoreOperationSerializer)defaultOperationSerializer
 {
 	return ^ NSData* (YapDatabaseCloudCoreOperation *operation){
-		return [NSKeyedArchiver archivedDataWithRootObject:operation];
+		return [NSKeyedArchiver archivedDataWithRootObject:operation requiringSecureCoding:NO error:nil];
 	};
 }
 
 + (YDBCloudCoreOperationDeserializer)defaultOperationDeserializer
 {
 	return ^ YapDatabaseCloudCoreOperation * (NSData *operationBlob){
-		return (operationBlob.length > 0) ? [NSKeyedUnarchiver unarchiveObjectWithData:operationBlob] : nil;
+		return (operationBlob.length > 0) ? [NSKeyedUnarchiver unarchivedObjectOfClass:[YapDatabaseCloudCoreOperation class]
+                                                                          fromData:operationBlob
+                                                                             error:nil] : nil;
 	};
 }
 

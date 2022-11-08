@@ -38,28 +38,7 @@
 	#define __IPHONE_9_0 90000
 	#endif
 	
-	#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_9_0
-	
-		BOOL isIOS9orLater = YES;
-	
-	#else
-	
-		NSOperatingSystemVersion ios9_0_0 = (NSOperatingSystemVersion){9, 0, 0};
-		BOOL isIOS9orLater = [[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ios9_0_0];
-	
-	#endif
-	
-	if (isIOS9orLater)
-	{
-		// iOS 9+
-		return [self copy];
-	}
-	else
-	{
-		// iOS 8.X
-		NSData *archive = [NSKeyedArchiver archivedDataWithRootObject:self];
-		return [NSKeyedUnarchiver unarchiveObjectWithData:archive];
-	}
+  return [self copy];
 	
 #elif !TARGET_OS_EMBEDDED
 	
@@ -121,7 +100,7 @@
 	if (record == nil) return nil;
 	
 	YDBCKRecord *recordWrapper = [[YDBCKRecord alloc] initWithRecord:record];
-	return [NSKeyedArchiver archivedDataWithRootObject:recordWrapper];
+	return [NSKeyedArchiver archivedDataWithRootObject:recordWrapper requiringSecureCoding:NO error:nil];
 }
 
 /**
@@ -133,7 +112,7 @@
 + (CKRecord *)deserializeRecord:(NSData *)data
 {
 	if (data)
-		return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+		return [NSKeyedUnarchiver unarchivedObjectOfClass:[CKRecord class] fromData:data error:nil];
 	else
 		return nil;
 }
