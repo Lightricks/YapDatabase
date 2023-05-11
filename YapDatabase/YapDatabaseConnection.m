@@ -45,7 +45,9 @@ typedef BOOL (*IMP_NSThread_isMainThread)(id, SEL);
 static IMP_NSThread_isMainThread ydb_NSThread_isMainThread;
 static Class ydb_NSThread_Class;
 
-NS_INLINE BOOL YDBIsMainThread()
+static BOOL YDBIsMainThread(void);
+
+NS_INLINE BOOL YDBIsMainThread(void)
 {
 	return ydb_NSThread_isMainThread(ydb_NSThread_Class, @selector(isMainThread));
 }
