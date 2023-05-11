@@ -23,7 +23,9 @@
 #endif
 #pragma unused(ydbLogLevel)
 
-static pid_t currentPid() {
+static pid_t currentPid(void);
+
+static pid_t currentPid(void) {
     static dispatch_once_t onceToken;
     static pid_t pid;
     dispatch_once(&onceToken, ^{
