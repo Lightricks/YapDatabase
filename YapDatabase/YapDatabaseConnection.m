@@ -11,7 +11,7 @@
 #import "YapSet.h"
 #import "YapTouch.h"
 
-#import <mach/mach_time.h>
+#include <time.h>
 #import <objc/runtime.h>
 #import <stdatomic.h>
 
@@ -2571,7 +2571,7 @@ static int connectionBusyHandler(void *ptr, int count)
 		}
 		
 		myState->lastTransactionSnapshot = dbSnapshot;
-		myState->lastTransactionTime = mach_absolute_time();
+		myState->lastTransactionTime = clock_gettime_nsec_np(CLOCK_UPTIME_RAW);
 		
 	#pragma clang diagnostic pop
 	}});
@@ -2898,7 +2898,7 @@ static int connectionBusyHandler(void *ptr, int count)
 		}
 		
 		myState->lastTransactionSnapshot = dbSnapshot;
-		myState->lastTransactionTime = mach_absolute_time();
+		myState->lastTransactionTime = clock_gettime_nsec_np(CLOCK_UPTIME_RAW);
 		needsMarkSqlLevelSharedReadLock = NO;
 		
 		YDBLogVerbose(@"YapDatabaseConnection(%p) starting read-write transaction.", self);
@@ -3435,7 +3435,7 @@ static int connectionBusyHandler(void *ptr, int count)
 		}
 		
 		myState->lastTransactionSnapshot = [database snapshot];
-		myState->lastTransactionTime = mach_absolute_time();
+		myState->lastTransactionTime = clock_gettime_nsec_np(CLOCK_UPTIME_RAW);
 		needsMarkSqlLevelSharedReadLock = YES;
 		
 		YDBLogVerbose(@"YapDatabaseConnection(%p) starting vacuum operation.", self);
