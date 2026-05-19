@@ -99,7 +99,7 @@
 		[self _flushStatements];
 	}
 	
-	if (flags & YapDatabaseConnectionFlushMemoryFlags_Extension_State)
+	if (flags & (NSUInteger)YapDatabaseConnectionFlushMemoryFlags_Extension_State)
 	{
 		state = nil;
 	}
